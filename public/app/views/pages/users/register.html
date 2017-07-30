@@ -1,0 +1,100 @@
+<div class="page-header">
+  <h1>Welcome User Registration Page</h1>
+</div>
+
+
+  <form name="regForm" ng-submit="register.userSubmit(regData , regForm.$valid)" novalidate>
+    <div ng-class="{ 'has-success' :(regForm.name.$valid && !regForm.name.$pristine) , 'has-error' : (!regForm.name.$valid && !regForm.name.$pristine) || (!regForm.name.$valid && regForm.$submitted)}">
+      <!-- name-->
+        <label>Name</label>
+        <input class="form-control"  name="name"  type="text" placeholder="please enter your name" ng-model="register.regData.name" required/>
+        <p class="help-block"ng-show="(!regForm.name.$pristine && regForm.name.$error.required) || (regForm.$submitted && regForm.name.$error.required)">
+          This Field is required..
+        </p>
+    </div>
+
+      <br />
+    <div ng-class="{ 'has-success' :(regForm.email.$valid && !regForm.email.$pristine) , 'has-error' : (!regForm.email.$valid && !regForm.email.$pristine) || (!regForm.email.$valid && regForm.$submitted)}">
+
+    <!-- email-->
+      <label>Email ID</label>
+      <input class="form-control" type="text" name="email" placeholder="please enter your email" ng-model="register.regData.email" required/>
+      <p class="help-block"ng-show="(!regForm.email.$pristine && regForm.email.$error.required) || (regForm.$submitted && regForm.email.$error.required)">
+        This Field is required..
+      </p>
+
+</div>
+      <br />
+    <!-- username-->
+  <div ng-class="{ 'has-success' :(regForm.username.$valid && !regForm.username.$pristine && !register.usernameInvalid) , 'has-error' : (!regForm.username.$valid && !regForm.username.$pristine) || (!regForm.username.$valid && regForm.$submitted) || register.usernameInvalid}">
+    <label>Username</label>
+    <input class="form-control" type="text" name="username" placeholder="please enter your username"ng-model="register.regData.username" ng-blur="register.checkusername(regdata);" required/>
+    <p class="help-block"ng-show="(!regForm.username.$pristine && regForm.username.$error.required) || (regForm.$submitted && regForm.username.$error.required)">
+      This Field is required..
+    </p>
+    <p class="help-block" ng-show="register.checkingUsername">
+      {{register.usernameMsg}}
+    </p>
+    <br />
+
+  </div>
+
+  <div ng-class="{ 'has-success' :(regForm.firstPassword.$valid && !regForm.firstPassword.$pristine) , 'has-error' : (!regForm.firstPassword.$valid && !regForm.firstPassword.$pristine) || (!regForm.firstPassword.$valid && regForm.$submitted)}">
+    <!-- password-->
+
+    <label>Password</label>
+    <input class="form-control" type="password"  name="firstPassword" placeholder="please enter your password" ng-model="firstPassword" required/>
+    <br />
+    <p class="help-block"ng-show="(!regForm.firstPassword.$pristine && regForm.firstPassword.$error.required) || (regForm.$submitted && regForm.firstPassword.$error.required)">
+      This Field is required..
+    </p>
+  </div>
+
+  <div ng-class="{ 'has-success' :confirmed && !regForm.confirmPassword.$error.required, 'has-error' : (!confirmed && !regForm.confirmPassword.$error.required) || (regForm.confirmPassword.$error.required && !regForm.confirmPassword.$pristine ) ||(regForm.$submitted && regForm.confirmPassword.$error.required)}">
+    <!-- COnfirm password-->
+
+    <label>ConfirmPassword</label>
+    <input class="form-control" type="password"  name="confirmPassword" placeholder="please re-enter your password" ng-model="confirm" ng-change="register.regData.password = confirm" match="{{[firstPassword]}}"required/>
+    <br />
+    <p class="help-block" ng-show="(!regForm.confirmPassword.$pristine && regForm.confirmPassword.$error.required) || (regForm.$submitted && regForm.confirmPassword.$error.required)">
+              This Field is Required ....  </p>
+              <p class="help-block" ng-show="!confirmed && !regForm.confirmPassword.$pristine && regForm.firstPassword.$valid">
+                        Password Doesnt Match    </p>
+  </div>
+    <!-- Submit-->
+
+
+    <button class="btn btn-primary" type="submit"> SUBMIT</button>
+
+  </form>
+  <br />
+  <br />
+
+
+
+  <br />
+
+  <div class="jumbotron text-center" ng-show="register.loading">
+     <span class="glyphicon glyphicon-repeat spinner">
+
+     </span>
+     <p>
+       Loading....
+     </p>
+  </div>
+
+<br />
+<div class="row show-hide-message ">
+  <div class="alert alert-success" ng-show="register.SuccessMsg">
+        {{ register.SuccessMsg }}
+  </div>
+</div>
+
+
+<br />
+
+<div class="row show-hide-message ">
+  <div class="alert alert-danger" ng-show="register.errorMsg">
+        {{ register.errorMsg }}
+  </div>
+</div>

@@ -1,0 +1,45 @@
+
+
+<div class="page-header">
+  <h1>Welcome User Login form</h1>
+</div>
+
+
+  <form ng-submit="main.doLogin(loginData)">
+
+    <!-- username-->
+
+    <label>Username</label>
+
+    <input class="form-control" type="text" placeholder="please enter your username"ng-model="main.loginData.username"/>
+    <br />
+
+    <!-- password-->
+
+    <label>Password</label>
+    <input class="form-control" type="password" placeholder="please enter your password" ng-model="main.loginData.password"/>
+    <br />
+    <!-- Submit-->
+
+        <button class="btn btn-primary" type="submit">LOGIN</button>&nbsp
+        <div class="pull-right">
+
+           <a href="/resetusername"><button type="button" class="btn btn-danger" >Forgot Username</button></a>
+         </div>
+  </form>
+
+  <br />
+  <div class="row show-hide-message ">
+    <div class="alert alert-success" ng-show="main.SuccessMsg">
+          {{ main.SuccessMsg }}
+    </div>
+  </div>
+
+
+  <br />
+
+  <div class="row show-hide-message ">
+    <div class="alert alert-danger" ng-show="main.errorMsg">
+          {{ main.errorMsg }}
+    </div>
+  </div>

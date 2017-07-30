@@ -1,0 +1,28 @@
+
+
+<div class="page-header">
+  <h1>Account Activation</h1>
+</div>
+
+<button type="button" class="btn btn-success" ng-hide="email.yes" ng-click="email.activated()"> Activate </button>
+
+
+
+
+  <br />
+
+  <br />
+  <div class="row show-hide-message ">
+    <div class="alert alert-success" ng-show="email.SuccessMsg">
+          {{ email.SuccessMsg }}
+    </div>
+  </div>
+
+
+  <br />
+
+  <div class="row show-hide-message ">
+    <div class="alert alert-danger" ng-show="email.errorMsg">
+      {{ email.errorMsg }}
+    </div>
+  </div>
