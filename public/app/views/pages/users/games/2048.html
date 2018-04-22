@@ -1,0 +1,102 @@
+<marquee><h1><b><i>Challenge You...Cant Play IT</i></b></h1></marquee>
+<head>
+
+  <style>
+
+  body{
+    background-color: floralwhite;
+  }
+  p{
+    color: black;
+    font-size: 20px;
+  }
+
+  h1{
+    text-align: center;
+  }
+
+  #score{
+    text-align: center;
+  }
+
+  .clear {
+    clear: both;
+  }
+
+  #size-bloc{
+    margin-left: -50px;
+    padding-left: 50px;
+  }
+  #size-title{
+    float: left;
+    margin-top: 0px;
+  }
+
+  #size{
+    width: 50px;
+    margin-left: 10px;
+    border-radius: 20px;
+  }
+
+  #canvas{
+    background-color: lightgray;
+  }
+
+  #canvas-bloc{
+    align-content: center;
+    margin-left: -250px;
+    padding-left: 50px;
+  }
+
+
+  </style>
+
+    <script>
+      console.log('hiii  there');
+    </script>
+
+</head>
+<body>
+
+  <div class="well well-sm">
+  <i><h2><b> ADDED RULE:</b> NUMBERS GO BEYOND THE GRID</h2></i>
+  </div>
+
+  <h3 id="score">
+
+  </h3>
+  <div id="size-bloc">
+    <p id="size-title"><label>SIZE:</label></p>
+    <div class="row">
+      <div class="col-md-1">
+
+        <input type="number" class="form-control bold" id="size" value="4">
+
+      </div>
+      <div class="col-md-1">
+
+
+        <button id="change-size" type="button" class="btn btn-info">OK</button>
+
+      </div>
+    </div>
+    <br />
+    <br />
+    <div class="clear">
+    </div>
+  </div>
+    <center>
+      <div id="canvas-bloc">
+         <canvas id="canvas" width="500" height="500"></canvas>
+      </div>
+    </center>
+
+<button type="button" class="btn btn-success pull-right" ng-click="game1.back()">Back to Home</button>
+
+<br />
+<br />
+
+<h1 ><marquee><i><b>CopyRights@1230 By RARESTOCK</b></i></marquee></h1>
+
+
+</body>
